@@ -92,6 +92,11 @@ class _XInputState extends State<XInput> {
       decoration: (widget.decoration ?? const InputDecoration()).copyWith(
         alignLabelWithHint: true,
         labelText: widget.labelText,
+        labelStyle: const TextStyle(
+          color: AppColors.secondaryText,
+          fontSize: 16,
+          fontWeight: FontWeight.w500,
+        ),
         border: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(24)),
         ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_boilerplate/constants/styles.dart';
-import 'package:flutter_boilerplate/presentation/widgets/coming_soon_screen.dart';
+import 'package:flutter_boilerplate/presentation/resume/widgets/timeline_history.dart';
 
 class ResumeScreen extends StatelessWidget {
   const ResumeScreen({super.key});
@@ -15,7 +15,7 @@ class ResumeScreen extends StatelessWidget {
           style: AppStyles.titleLarge,
         ),
         SizedBox(height: 16),
-        Expanded(child: ComingSoonScreen())
+        TimelineHistory()
       ],
     );
   }

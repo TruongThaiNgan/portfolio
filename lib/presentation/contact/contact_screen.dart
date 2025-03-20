@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_boilerplate/constants/colors.dart';
 import 'package:flutter_boilerplate/constants/styles.dart';
 import 'package:flutter_boilerplate/presentation/contact/widgets/contact_form.dart';
 
@@ -7,14 +8,19 @@ class ContactScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
-        Text(
-          "Contact me",
-          style: AppStyles.titleLarge,
+        Expanded(
+          flex: 1,
+          child: Center(
+            child: Text(
+              "Contact me",
+              style: AppStyles.titleLarge.copyWith(color: AppColors.white),
+            ),
+          ),
         ),
-        SizedBox(height: 16),
-        ContactForm(),
+        const SizedBox(height: 32),
+        const Expanded(flex: 2, child: ContactForm()),
       ],
     );
   }

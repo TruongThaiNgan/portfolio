@@ -71,3 +71,51 @@ enum AbilityAboutMe {
     }
   }
 }
+
+enum HistoryEnum {
+  goldenOwl,
+  browng,
+  kma;
+
+  HistoryItem getItem() {
+    switch (this) {
+      case HistoryEnum.goldenOwl:
+        return HistoryItem(
+          time: "12/2020 - 03/2025",
+          title: "Golden Owl",
+          role: "Software Developer",
+          icon: Assets.icons.companyIcon.image(),
+        );
+      case HistoryEnum.browng:
+        return HistoryItem(
+          time: "03/2019 - 12/2020",
+          title: "BROWNG-TECH GROUP",
+          role: "Website Developer",
+          icon: Assets.icons.groupIcon.image(),
+        );
+      case HistoryEnum.kma:
+        return HistoryItem(
+          time: "2017-2020",
+          title: "KMA",
+          role: "Student",
+          icon: Assets.icons.learnIcon.image(),
+        );
+    }
+  }
+}
+
+class HistoryItem {
+  final String time;
+  final String title;
+  final String role;
+  final Image icon;
+  final Widget? description;
+
+  HistoryItem({
+    required this.time,
+    required this.title,
+    required this.role,
+    required this.icon,
+    this.description,
+  });
+}

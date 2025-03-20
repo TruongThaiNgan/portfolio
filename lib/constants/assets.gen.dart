@@ -16,6 +16,10 @@ class $AssetsIconsGen {
   AssetGenImage get androidStudioIcon =>
       const AssetGenImage('assets/icons/android_studio_icon.png');
 
+  /// File path: assets/icons/company_icon.png
+  AssetGenImage get companyIcon =>
+      const AssetGenImage('assets/icons/company_icon.png');
+
   /// File path: assets/icons/db_server_icon.png
   AssetGenImage get dbServerIcon =>
       const AssetGenImage('assets/icons/db_server_icon.png');
@@ -30,6 +34,14 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/github.png
   AssetGenImage get github => const AssetGenImage('assets/icons/github.png');
+
+  /// File path: assets/icons/group_icon.png
+  AssetGenImage get groupIcon =>
+      const AssetGenImage('assets/icons/group_icon.png');
+
+  /// File path: assets/icons/learn_icon.png
+  AssetGenImage get learnIcon =>
+      const AssetGenImage('assets/icons/learn_icon.png');
 
   /// File path: assets/icons/linked_in.png
   AssetGenImage get linkedIn =>
@@ -57,10 +69,13 @@ class $AssetsIconsGen {
   /// List of all assets
   List<AssetGenImage> get values => [
     androidStudioIcon,
+    companyIcon,
     dbServerIcon,
     firebaseIcon,
     flutterIcon,
     github,
+    groupIcon,
+    learnIcon,
     linkedIn,
     mobileIcon,
     nodejsIcon,
