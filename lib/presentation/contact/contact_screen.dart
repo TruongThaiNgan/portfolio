@@ -8,20 +8,23 @@ class ContactScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Expanded(
-          flex: 1,
-          child: Center(
-            child: Text(
-              "Contact me",
-              style: AppStyles.titleLarge.copyWith(color: AppColors.white),
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        children: [
+          Expanded(
+            flex: 1,
+            child: Center(
+              child: Text(
+                "Contact me",
+                style: AppStyles.titleLarge.copyWith(color: AppColors.white),
+              ),
             ),
           ),
-        ),
-        const SizedBox(height: 32),
-        const Expanded(flex: 2, child: ContactForm()),
-      ],
+          const SizedBox(height: 32),
+          const Expanded(flex: 2, child: ContactForm()),
+        ],
+      ),
     );
   }
 }

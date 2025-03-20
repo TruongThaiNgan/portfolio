@@ -12,27 +12,30 @@ class AboutMeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text(
-            "About Me",
-            style: AppStyles.titleLarge,
-          ),
-          const SizedBox(height: 16),
-          const Text('''
-      A passionate Flutter developer with strong expertise in cross-platform apps, REST APIs, UI/UX, widgets, and state management solutions. Proven track record in delivering cutting-edge solutions, including API integration, third-party libraries, and performance optimization. Adept at debugging to ensure high-quality, responsive apps and An agile collaborator committed to staying current with industry trends.
-      
-      If you're seeking a skilled Flutter developer to breathe life into your project and exceed your expectations, I am here to collaborate and create magic together. Reach out, and let's transform your vision into a reality!
-      '''),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              "About Me",
+              style: AppStyles.titleLarge,
+            ),
+            const SizedBox(height: 16),
+            const Text('''
+        A passionate Flutter developer with strong expertise in cross-platform apps, REST APIs, UI/UX, widgets, and state management solutions. Proven track record in delivering cutting-edge solutions, including API integration, third-party libraries, and performance optimization. Adept at debugging to ensure high-quality, responsive apps and An agile collaborator committed to staying current with industry trends.
+        
+        If you're seeking a skilled Flutter developer to breathe life into your project and exceed your expectations, I am here to collaborate and create magic together. Reach out, and let's transform your vision into a reality!
+        '''),
 
-          // Ability section
-          _abilitySection(),
+            // Ability section
+            _abilitySection(),
 
-          const SizedBox(height: 8),
+            const SizedBox(height: 8),
 
-          _skillSection()
-        ],
+            _skillSection()
+          ],
+        ),
       ),
     );
   }

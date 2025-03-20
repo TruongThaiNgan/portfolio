@@ -7,16 +7,19 @@ class ResumeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          "Resume",
-          style: AppStyles.titleLarge,
-        ),
-        SizedBox(height: 16),
-        TimelineHistory()
-      ],
+    return const Padding(
+      padding: EdgeInsets.all(16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Resume",
+            style: AppStyles.titleLarge,
+          ),
+          SizedBox(height: 16),
+          TimelineHistory()
+        ],
+      ),
     );
   }
 }

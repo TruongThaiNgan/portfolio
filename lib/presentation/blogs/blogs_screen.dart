@@ -40,26 +40,29 @@ class BlogsScreen extends StatelessWidget {
       "ReSharper",
     ];
 
-    return const Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          "Blogs",
-          style: AppStyles.titleLarge,
-        ),
-        SizedBox(height: 16),
-        Expanded(child: ComingSoonScreen())
-        // CustomGridView(
-        //     items: skills,
-        //     mainAxisSpacing: 16,
-        //     crossAxisSpacing: 16,
-        //     builder: (item) {
-        //       return Container(
-        //         color: Colors.red,
-        //         height: 100,
-        //       );
-        //     })
-      ],
+    return const Padding(
+      padding: EdgeInsets.all(16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Blogs",
+            style: AppStyles.titleLarge,
+          ),
+          SizedBox(height: 16),
+          Expanded(child: ComingSoonScreen())
+          // CustomGridView(
+          //     items: skills,
+          //     mainAxisSpacing: 16,
+          //     crossAxisSpacing: 16,
+          //     builder: (item) {
+          //       return Container(
+          //         color: Colors.red,
+          //         height: 100,
+          //       );
+          //     })
+        ],
+      ),
     );
   }
 }

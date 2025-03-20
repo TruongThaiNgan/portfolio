@@ -18,22 +18,25 @@ class OldProjectsScreen extends StatelessWidget {
       const ComingSoonScreen(),
     ];
     return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text(
-            "My old projects",
-            style: AppStyles.titleLarge,
-          ),
-          const SizedBox(height: 16),
-          CustomGridView(
-            crossAxisCount: 3,
-            crossAxisSpacing: 16,
-            mainAxisSpacing: 16,
-            items: items,
-            builder: (item) => const ProjectItem(),
-          )
-        ],
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              "My old projects",
+              style: AppStyles.titleLarge,
+            ),
+            const SizedBox(height: 16),
+            CustomGridView(
+              crossAxisCount: 3,
+              crossAxisSpacing: 16,
+              mainAxisSpacing: 16,
+              items: items,
+              builder: (item) => const ProjectItem(),
+            )
+          ],
+        ),
       ),
     );
   }
