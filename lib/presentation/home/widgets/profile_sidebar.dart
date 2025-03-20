@@ -25,7 +25,7 @@ class ProfileSidebar extends StatelessWidget {
           const Divider(
             height: 17,
             thickness: 1,
-            color: AppColors.secondaryTextColor,
+            color: AppColors.secondaryText,
           ),
           _quickContactSection(),
         ],
@@ -38,7 +38,7 @@ class ProfileSidebar extends StatelessWidget {
       margin: EdgeInsets.only(right: isLast ? 0 : 8),
       width: 15,
       height: 15,
-      child: icon?.image(color: AppColors.secondaryTextColor),
+      child: icon?.image(color: AppColors.secondaryText),
     );
   }
 
@@ -69,7 +69,7 @@ class ProfileSidebar extends StatelessWidget {
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
           decoration: BoxDecoration(
-            color: AppColors.secondaryTextColor,
+            color: AppColors.secondaryText,
             borderRadius: BorderRadius.circular(4),
           ),
           child: const Text(
@@ -88,7 +88,7 @@ class ProfileSidebar extends StatelessWidget {
       height: 150,
       width: 150,
       child: CircleAvatar(
-        backgroundColor: AppColors.secondaryTextColor,
+        backgroundColor: AppColors.secondaryText,
         foregroundImage: AssetImage(Assets.images.avatar.path),
       ),
     );

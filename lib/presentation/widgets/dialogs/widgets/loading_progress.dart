@@ -77,7 +77,7 @@
 //                                   backgroundColor: Colors.white,
 //                                   strokeWidth: 2,
 //                                   valueColor: AlwaysStoppedAnimation(
-//                                       Theme.of(context).primaryColor),
+//                                       Theme.of(context).primary),
 //                                 ),
 //                               )
 //                             : const CupertinoActivityIndicator(

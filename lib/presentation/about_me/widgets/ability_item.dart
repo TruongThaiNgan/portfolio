@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_boilerplate/constants/colors.dart';
 import 'package:flutter_boilerplate/constants/enums.dart';
+import 'package:flutter_boilerplate/constants/styles.dart';
 
 class AbilityItem extends StatelessWidget {
   const AbilityItem({super.key, required this.item});
@@ -12,10 +13,10 @@ class AbilityItem extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
-        color: const Color(0xFF242424),
+        color: AppColors.secondaryBackground,
         boxShadow: [
           BoxShadow(
-            color: AppColors.primaryColor.withValues(alpha: 0.2),
+            color: AppColors.primary.withValues(alpha: 0.2),
             spreadRadius: 0.5,
             blurRadius: 1,
             offset: const Offset(-0.5, -1),
@@ -50,7 +51,7 @@ class AbilityItem extends StatelessWidget {
       child: item.getIcon().image(
             width: 35,
             height: 35,
-            color: AppColors.primaryColor,
+            color: AppColors.primary,
           ),
     );
   }
@@ -58,10 +59,7 @@ class AbilityItem extends StatelessWidget {
   Widget _title() {
     return Text(
       item.getTitle(),
-      style: const TextStyle(
-        fontSize: 18,
-        fontWeight: FontWeight.bold,
-      ),
+      style: AppStyles.titleSmall,
     );
   }
 

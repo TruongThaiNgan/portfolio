@@ -35,7 +35,7 @@ class HomeContactItem extends StatelessWidget {
       padding: const EdgeInsets.all(8),
       child: Icon(
         item.getIcon(),
-        color: AppColors.primaryColor,
+        color: AppColors.primary,
       ),
     );
   }
@@ -48,7 +48,7 @@ class HomeContactItem extends StatelessWidget {
           item.name.toUpperCase(),
           style: const TextStyle(
             fontSize: 12,
-            color: AppColors.secondaryTextColor,
+            color: AppColors.secondaryText,
           ),
         ),
         Text(

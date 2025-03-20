@@ -13,10 +13,10 @@ class CardWrapper extends StatelessWidget {
       padding: padding ?? const EdgeInsets.all(16),
       decoration: BoxDecoration(
         border: Border.all(
-          color: AppColors.secondaryTextColor,
+          color: AppColors.secondaryText,
         ),
         borderRadius: BorderRadius.circular(15),
-        color: AppColors.backgroundColor,
+        color: AppColors.background,
       ),
       child: content,
     );

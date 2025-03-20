@@ -6,13 +6,17 @@ class AppColors {
   static const black = Colors.black;
   static const white = Colors.white;
 
-  static const textColor = Colors.white;
+  static const text = Colors.white;
 
-  static const secondaryTextColor = Color(0xFF8d8d8d);
+  static const secondaryText = Color(0xFF8d8d8d);
 
-  static const backgroundColor = Color(0xFF1e1e1f);
+  static const background = Color(0xFF1e1e1f);
 
-  static const primaryColor = Color(0xFF0588FA);
+  static const primary = Color(0xFF0588FA);
+
+  static const secondaryBackground = Color(0xFF242424);
+
+  static const error = Color(0xFFff0033);
 
   static const Map<int, Color> orange = <int, Color>{
     50: Color(0xFFFCF2E7),

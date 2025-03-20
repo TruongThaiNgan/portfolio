@@ -11,7 +11,7 @@ class SkillItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.primaryColor.withAlpha((0.1 * 255).round()),
+        color: AppColors.primary.withAlpha((0.1 * 255).round()),
         borderRadius: BorderRadius.circular(24),
       ),
       padding: const EdgeInsets.all(24),
