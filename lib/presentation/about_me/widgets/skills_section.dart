@@ -20,14 +20,11 @@ class SkillsSection extends StatelessWidget {
     ];
 
     return LayoutBuilder(builder: (context, _) {
-      int crossAxisCount = 5;
       ResponsiveBreakpointsData data = ResponsiveBreakpoints.of(context);
-      if (data.equals(XResponsiveBreakpoint.medium.name) ||
-          data.equals(XResponsiveBreakpoint.xSmall.name)) {
-        crossAxisCount = 3;
-      } else {
-        crossAxisCount = 5;
-      }
+
+      bool isMediumOrXSmall = data.equals(XResponsiveBreakpoint.medium.name) ||
+          data.equals(XResponsiveBreakpoint.xSmall.name);
+      int crossAxisCount = isMediumOrXSmall ? 3 : 5;
 
       return Column(
         children: [

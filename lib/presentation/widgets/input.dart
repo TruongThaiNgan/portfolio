@@ -18,6 +18,7 @@ class XInput extends StatefulWidget {
     this.inputFormatters,
     this.onFieldSubmitted,
     this.labelText,
+    this.validator,
   });
   final String value;
   final TextInputType? keyboardType;
@@ -34,6 +35,7 @@ class XInput extends StatefulWidget {
   final TextStyle? style;
   final List<TextInputFormatter>? inputFormatters;
   final void Function(String)? onFieldSubmitted;
+  final String? Function(String?)? validator;
 
   @override
   State<XInput> createState() => _XInputState();
@@ -80,6 +82,7 @@ class _XInputState extends State<XInput> {
       onChanged: widget.onChanged,
       maxLines: widget.maxLines,
       keyboardType: widget.keyboardType,
+      validator: widget.validator,
       style: widget.style,
       textAlign: widget.textAlign,
       obscureText: obscureText,

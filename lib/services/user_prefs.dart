@@ -1,10 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // ignore: camel_case_types
 class _keys {
-  static const String theme = 'app-theme';
-  static const String token = 'token';
+  static const String durationContactSent = 'duration-contact-sent';
 }
 
 class UserPrefs {
@@ -18,31 +16,31 @@ class UserPrefs {
     _prefs = await SharedPreferences.getInstance();
   }
 
-  // theme
-  ThemeMode getTheme() {
-    final value = _prefs.getString(_keys.theme);
-    return ThemeMode.values.firstWhere(
-      (e) => e.toString().toLowerCase() == '$value'.toLowerCase(),
-      orElse: () => ThemeMode.system,
-    );
-  }
+  // // theme
+  // ThemeMode getTheme() {
+  //   final value = _prefs.getString(_keys.theme);
+  //   return ThemeMode.values.firstWhere(
+  //     (e) => e.toString().toLowerCase() == '$value'.toLowerCase(),
+  //     orElse: () => ThemeMode.system,
+  //   );
+  // }
 
-  void setTheme(ThemeMode value) {
-    _prefs.setString(_keys.theme, value.toString().toLowerCase());
-  }
+  // void setTheme(ThemeMode value) {
+  //   _prefs.setString(_keys.theme, value.toString().toLowerCase());
+  // }
 
-  String getToken() {
+  int getDuration() {
     try {
-      return _prefs.getString(_keys.token) ?? '';
+      return _prefs.getInt(_keys.durationContactSent) ?? 0;
     } catch (_) {}
-    return '';
+    return 0;
   }
 
-  void setToken(String? value) {
+  void setDuration(int? value) {
     if (value == null) {
-      _prefs.remove(_keys.token);
+      _prefs.remove(_keys.durationContactSent);
     } else {
-      _prefs.setString(_keys.token, value);
+      _prefs.setInt(_keys.durationContactSent, value);
     }
   }
 }

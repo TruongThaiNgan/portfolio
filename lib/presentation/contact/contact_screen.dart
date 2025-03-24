@@ -22,7 +22,12 @@ class ContactScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 32),
-          const Expanded(flex: 2, child: ContactForm()),
+          const Expanded(
+            flex: 2,
+            child: SingleChildScrollView(
+              child: ContactForm(),
+            ),
+          ),
         ],
       ),
     );

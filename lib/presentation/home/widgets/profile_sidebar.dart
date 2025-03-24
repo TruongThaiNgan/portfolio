@@ -19,18 +19,20 @@ class ProfileSidebar extends StatelessWidget {
             .smallerThan(XResponsiveBreakpoint.large.name);
         return CardWrapper(
           width: isSmallerLargeScreen ? 230 : 300,
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const SizedBox(height: 16),
-              _avatarSection(),
-              const Divider(
-                height: 17,
-                thickness: 1,
-                color: AppColors.secondaryText,
-              ),
-              _quickContactSection(),
-            ],
+          content: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const SizedBox(height: 16),
+                _avatarSection(),
+                const Divider(
+                  height: 17,
+                  thickness: 1,
+                  color: AppColors.secondaryText,
+                ),
+                _quickContactSection(),
+              ],
+            ),
           ),
         );
       },

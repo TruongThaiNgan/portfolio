@@ -26,14 +26,12 @@ class _AbilitiesSectionState extends State<AbilitiesSection> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 16),
           child: LayoutBuilder(builder: (context, _) {
-            int crossAxisCount = 2;
             ResponsiveBreakpointsData data = ResponsiveBreakpoints.of(context);
-            if (data.equals(XResponsiveBreakpoint.medium.name) ||
-                data.equals(XResponsiveBreakpoint.xSmall.name)) {
-              crossAxisCount = 1;
-            } else {
-              crossAxisCount = 2;
-            }
+
+            bool isMediumOrXSmall =
+                data.equals(XResponsiveBreakpoint.medium.name) ||
+                    data.equals(XResponsiveBreakpoint.xSmall.name);
+            int crossAxisCount = isMediumOrXSmall ? 1 : 2;
 
             return CustomGridView<AbilityAboutMe>(
               items: abilities,

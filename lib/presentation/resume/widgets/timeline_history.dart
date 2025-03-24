@@ -15,25 +15,15 @@ class TimelineHistory extends StatelessWidget {
 
     return LayoutBuilder(builder: (context, _) {
       ResponsiveBreakpointsData data = ResponsiveBreakpoints.of(context);
-      if (data.equals(XResponsiveBreakpoint.medium.name) ||
-          data.equals(XResponsiveBreakpoint.xSmall.name)) {
-        return Timeline(
-          properties: const TimelineProperties(
-            lineWidth: 4,
-            lineColor: AppColors.secondaryText,
-            iconGap: 16,
-            iconSize: 32,
-            iconAlignment: MarkerIconAlignment.center,
-          ),
-          children: myHistory
-              .mapIndexed((element, index) =>
-                  _buildMaker(item: element.getItem(), isLeft: false))
-              .toList(),
-        );
-      }
+
+      bool isMediumOrXSmall = data.equals(XResponsiveBreakpoint.medium.name) ||
+          data.equals(XResponsiveBreakpoint.xSmall.name);
+
       return Timeline(
-        properties: const TimelineProperties(
-          timelinePosition: TimelinePosition.center,
+        properties: TimelineProperties(
+          timelinePosition: isMediumOrXSmall
+              ? TimelinePosition.start
+              : TimelinePosition.center,
           lineWidth: 4,
           lineColor: AppColors.secondaryText,
           iconGap: 16,
@@ -41,8 +31,9 @@ class TimelineHistory extends StatelessWidget {
           iconAlignment: MarkerIconAlignment.center,
         ),
         children: myHistory
-            .mapIndexed((element, index) =>
-                _buildMaker(item: element.getItem(), isLeft: index.isEven))
+            .mapIndexed((element, index) => _buildMaker(
+                item: element.getItem(),
+                isLeft: !isMediumOrXSmall && index.isEven))
             .toList(),
       );
     });

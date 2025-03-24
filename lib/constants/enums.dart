@@ -12,10 +12,10 @@ enum HomeContact {
         return 'truongthaingan19@gmail.com';
 
       case phone:
-        return '+084 394 737 306';
+        return '+084 ... ... 306';
 
       case location:
-        return 'Tân Bình, Tp HCM';
+        return 'Bình Tân, Tp HCM';
     }
   }
 

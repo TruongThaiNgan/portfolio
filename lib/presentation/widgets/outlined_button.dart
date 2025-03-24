@@ -30,8 +30,9 @@ class XOutlinedButton extends StatelessWidget {
             }
           }
         : null;
-    final foregroundColor = AppColors.primary;
-    final indicator = CircularProgressIndicator();
+    final foregroundColor =
+        enabled ? AppColors.primary : AppColors.secondaryText;
+    const indicator = CircularProgressIndicator();
     // XIndicator(radius: size.iconSize / 2, color: foregroundColor);
 
     return SizedBox(
@@ -45,13 +46,17 @@ class XOutlinedButton extends StatelessWidget {
             ),
             // textStyle: size.style.copyWith(),
             // minimumSize: Size(size.minWidth, size.height),
-            padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
           ),
         ),
         child: icon != null
             ? OutlinedButton.icon(
                 onPressed: onPressed,
-                label: child ?? Text(title ?? ''),
+                label: child ??
+                    Text(
+                      title ?? '',
+                      style: TextStyle(color: foregroundColor),
+                    ),
                 icon: busy
                     ? indicator
                     : IconTheme(
@@ -59,7 +64,8 @@ class XOutlinedButton extends StatelessWidget {
                           // size: size.iconSize,
                           color: foregroundColor,
                         ),
-                        child: icon!),
+                        child: icon!,
+                      ),
               )
             : OutlinedButton(
                 onPressed: onPressed,
