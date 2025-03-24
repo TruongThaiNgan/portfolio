@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_boilerplate/constants/colors.dart';
+import 'package:flutter_boilerplate/constants/enums.dart';
 import 'package:flutter_boilerplate/presentation/about_me/about_me_screen.dart';
 import 'package:flutter_boilerplate/presentation/blogs/blogs_screen.dart';
 import 'package:flutter_boilerplate/presentation/contact/contact_screen.dart';
 import 'package:flutter_boilerplate/presentation/old_projects/old_projects_screen.dart';
 import 'package:flutter_boilerplate/presentation/resume/resume_screen.dart';
 import 'package:flutter_boilerplate/presentation/widgets/card_wrapper.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class HomeContent extends StatefulWidget {
   const HomeContent({super.key});
@@ -23,7 +25,7 @@ class _HomeContentState extends State<HomeContent>
     super.initState();
     tabController = TabController(
       initialIndex: 0,
-      length: 5,
+      length: 6,
       vsync: this,
     );
 
@@ -44,12 +46,13 @@ class _HomeContentState extends State<HomeContent>
             child: TabBarView(
               physics: const NeverScrollableScrollPhysics(),
               controller: tabController,
-              children: const <Widget>[
-                AboutMeScreen(),
-                ResumeScreen(),
-                OldProjectsScreen(),
-                BlogsScreen(),
-                ContactScreen(),
+              children: <Widget>[
+                const AboutMeScreen(),
+                const ResumeScreen(),
+                const OldProjectsScreen(),
+                const BlogsScreen(),
+                const ContactScreen(),
+                Container()
               ],
             ),
           ),
@@ -64,35 +67,48 @@ class _HomeContentState extends State<HomeContent>
       decoration: BoxDecoration(
         border: Border(
           top: BorderSide(
-            color: AppColors.primary.withValues(alpha: 0.2),
+            color: AppColors.primary.withValues(alpha: 0.5),
             width: 0.5,
           ),
         ),
       ),
-      child: ClipRRect(
-        borderRadius: const BorderRadius.vertical(
-          bottom: Radius.circular(14),
-        ),
-        child: BottomNavigationBar(
-          onTap: (value) {
-            tabController.animateTo(value);
-          },
-          currentIndex: tabController.index,
-          backgroundColor: AppColors.background,
-          type: BottomNavigationBarType.fixed,
-          selectedItemColor: AppColors.primary,
-          unselectedItemColor: AppColors.secondaryText,
-          items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'About me'),
-            BottomNavigationBarItem(icon: Icon(Icons.history), label: 'Resume'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.tab), label: 'Old Projects'),
-            BottomNavigationBarItem(icon: Icon(Icons.list), label: 'Blogs'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.contact_emergency), label: 'Contact me'),
-          ],
-        ),
-      ),
+      child: LayoutBuilder(builder: (context, _) {
+        bool isSmallerMediumScreen = ResponsiveBreakpoints.of(context)
+            .smallerThan(XResponsiveBreakpoint.medium.name);
+
+        return ClipRRect(
+          borderRadius: const BorderRadius.vertical(
+            bottom: Radius.circular(14),
+          ),
+          child: BottomNavigationBar(
+            onTap: (value) {
+              tabController.animateTo(value);
+            },
+            currentIndex: tabController.index,
+            backgroundColor: AppColors.background,
+            type: BottomNavigationBarType.fixed,
+            selectedItemColor: AppColors.primary,
+            unselectedItemColor: AppColors.secondaryText,
+            showUnselectedLabels: !isSmallerMediumScreen,
+            showSelectedLabels: !isSmallerMediumScreen,
+            items: [
+              const BottomNavigationBarItem(
+                  icon: Icon(Icons.home), label: 'About me'),
+              const BottomNavigationBarItem(
+                  icon: Icon(Icons.history), label: 'Resume'),
+              const BottomNavigationBarItem(
+                  icon: Icon(Icons.tab), label: 'Old Projects'),
+              const BottomNavigationBarItem(
+                  icon: Icon(Icons.list), label: 'Blogs'),
+              const BottomNavigationBarItem(
+                  icon: Icon(Icons.contact_emergency), label: 'Contact me'),
+              if (isSmallerMediumScreen)
+                const BottomNavigationBarItem(
+                    icon: Icon(Icons.person), label: 'Profile'),
+            ],
+          ),
+        );
+      }),
     );
   }
 

@@ -9,6 +9,7 @@ class CustomGridView<T> extends StatelessWidget {
     this.crossAxisSpacing = 0.0,
     this.crossAxisCount = 2,
     this.shrinkWrap = true,
+    this.padding,
   });
 
   final List<T> items;
@@ -17,6 +18,7 @@ class CustomGridView<T> extends StatelessWidget {
   final double crossAxisSpacing;
   final int crossAxisCount;
   final bool shrinkWrap;
+  final EdgeInsetsGeometry? padding;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +26,7 @@ class CustomGridView<T> extends StatelessWidget {
 
     return ListView.builder(
       shrinkWrap: shrinkWrap,
+      padding: padding,
       itemCount: rowLength,
       itemBuilder: (context, index) {
         int firstIndex = index * crossAxisCount;

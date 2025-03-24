@@ -104,6 +104,48 @@ enum HistoryEnum {
   }
 }
 
+enum XResponsiveBreakpoint {
+  xSmall,
+  small,
+  medium,
+  large,
+  extraLarge,
+  extraExtraLarge;
+
+  static XResponsiveBreakpoint getBreakpoint(double width) {
+    if (width < 576) {
+      return XResponsiveBreakpoint.xSmall;
+    } else if (width < 768) {
+      return XResponsiveBreakpoint.small;
+    } else if (width < 992) {
+      return XResponsiveBreakpoint.medium;
+    } else if (width < 1200) {
+      return XResponsiveBreakpoint.large;
+    } else if (width < 1400) {
+      return XResponsiveBreakpoint.extraLarge;
+    } else {
+      return XResponsiveBreakpoint.extraExtraLarge;
+    }
+  }
+
+  double getMinWidth() {
+    switch (this) {
+      case xSmall:
+        return 0;
+      case small:
+        return 576;
+      case medium:
+        return 768;
+      case large:
+        return 992;
+      case extraLarge:
+        return 1200;
+      case extraExtraLarge:
+        return 1400;
+    }
+  }
+}
+
 class HistoryItem {
   final String time;
   final String title;

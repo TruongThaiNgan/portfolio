@@ -10,12 +10,13 @@ class SkillItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.all(16),
+      alignment: Alignment.center,
       decoration: BoxDecoration(
         color: AppColors.primary.withAlpha((0.1 * 255).round()),
         borderRadius: BorderRadius.circular(24),
       ),
-      padding: const EdgeInsets.all(24),
-      child: icon.image(width: 72, height: 72),
+      child: icon.image(),
     );
   }
 }

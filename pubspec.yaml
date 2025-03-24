@@ -49,6 +49,7 @@ dependencies:
   device_info_plus: ^11.3.0
   logger: ^2.5.0
   timeline_list: ^0.1.1
+  responsive_framework: ^1.5.1
 
 dev_dependencies:
   flutter_test:

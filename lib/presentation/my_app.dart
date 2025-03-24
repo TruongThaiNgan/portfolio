@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_boilerplate/constants/colors.dart';
+import 'package:flutter_boilerplate/constants/enums.dart';
 import 'package:flutter_boilerplate/router/routes.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -27,6 +29,41 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       routerConfig: router,
+      builder: (context, child) => ResponsiveBreakpoints.builder(
+        child: child!,
+        breakpoints: [
+          Breakpoint(
+            start: 0,
+            end: 575,
+            name: XResponsiveBreakpoint.xSmall.name,
+          ),
+          Breakpoint(
+            start: 576,
+            end: 767,
+            name: XResponsiveBreakpoint.small.name,
+          ),
+          Breakpoint(
+            start: 768,
+            end: 991,
+            name: XResponsiveBreakpoint.medium.name,
+          ),
+          Breakpoint(
+            start: 992,
+            end: 1199,
+            name: XResponsiveBreakpoint.large.name,
+          ),
+          Breakpoint(
+            start: 1200,
+            end: 1399,
+            name: XResponsiveBreakpoint.extraLarge.name,
+          ),
+          Breakpoint(
+            start: 1400,
+            end: double.infinity,
+            name: XResponsiveBreakpoint.extraExtraLarge.name,
+          ),
+        ],
+      ),
     );
   }
 }

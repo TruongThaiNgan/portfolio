@@ -101,6 +101,13 @@ class _XInputState extends State<XInput> {
           borderRadius: BorderRadius.all(Radius.circular(24)),
         ),
         focusedBorder: focusedBorder,
+        enabledBorder: const OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(24)),
+          borderSide: BorderSide(
+            width: 1,
+            color: AppColors.secondaryText,
+          ),
+        ),
         errorBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(24)),
           borderSide: BorderSide(
