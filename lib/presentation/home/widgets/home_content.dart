@@ -4,6 +4,7 @@ import 'package:flutter_boilerplate/constants/enums.dart';
 import 'package:flutter_boilerplate/presentation/about_me/about_me_screen.dart';
 import 'package:flutter_boilerplate/presentation/blogs/blogs_screen.dart';
 import 'package:flutter_boilerplate/presentation/contact/contact_screen.dart';
+import 'package:flutter_boilerplate/presentation/home/widgets/profile_sidebar.dart';
 import 'package:flutter_boilerplate/presentation/old_projects/old_projects_screen.dart';
 import 'package:flutter_boilerplate/presentation/resume/resume_screen.dart';
 import 'package:flutter_boilerplate/presentation/widgets/card_wrapper.dart';
@@ -46,13 +47,13 @@ class _HomeContentState extends State<HomeContent>
             child: TabBarView(
               physics: const NeverScrollableScrollPhysics(),
               controller: tabController,
-              children: <Widget>[
-                const AboutMeScreen(),
-                const ResumeScreen(),
-                const OldProjectsScreen(),
-                const BlogsScreen(),
-                const ContactScreen(),
-                Container()
+              children: const <Widget>[
+                AboutMeScreen(),
+                ResumeScreen(),
+                OldProjectsScreen(),
+                BlogsScreen(),
+                ContactScreen(),
+                ProfileSidebar(),
               ],
             ),
           ),

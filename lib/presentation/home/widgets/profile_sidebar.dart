@@ -3,18 +3,13 @@ import 'package:flutter_boilerplate/constants/assets.gen.dart';
 import 'package:flutter_boilerplate/constants/colors.dart';
 import 'package:flutter_boilerplate/constants/enums.dart';
 import 'package:flutter_boilerplate/presentation/home/widgets/home_contact_item.dart';
+import 'package:flutter_boilerplate/presentation/home/widgets/mobile_other_item.dart';
 import 'package:flutter_boilerplate/presentation/home/widgets/other_contact_item.dart';
 import 'package:flutter_boilerplate/presentation/widgets/card_wrapper.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class ProfileSidebar extends StatelessWidget {
-  ProfileSidebar({super.key});
-
-  final List<HomeContact> contacts = [
-    HomeContact.email,
-    HomeContact.phone,
-    HomeContact.location,
-  ];
+  const ProfileSidebar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -42,13 +37,43 @@ class ProfileSidebar extends StatelessWidget {
     );
   }
 
-  Widget _otherContacts() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+  Widget _mobileView() {
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        OtherContactItem(icon: Assets.icons.github),
-        OtherContactItem(icon: Assets.icons.linkedIn, isLast: true),
+        Divider(
+          thickness: 1,
+        ),
+        SizedBox(
+          height: 16,
+        ),
+        Column(
+          spacing: 16,
+          children: [
+            MobileOtherItem(),
+            MobileOtherItem(),
+          ],
+        ),
       ],
+    );
+  }
+
+  Widget _otherContacts() {
+    return LayoutBuilder(
+      builder: (context, _) {
+        if (ResponsiveBreakpoints.of(context)
+            .smallerThan(XResponsiveBreakpoint.medium.name)) {
+          return _mobileView();
+        }
+
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            OtherContactItem(icon: Assets.icons.github),
+            OtherContactItem(icon: Assets.icons.linkedIn, isLast: true),
+          ],
+        );
+      },
     );
   }
 
@@ -95,15 +120,22 @@ class ProfileSidebar extends StatelessWidget {
   }
 
   Widget _quickContactSection() {
-    return Column(
-      children: [
-        ...contacts.map(
-          (e) => HomeContactItem(
-            item: e,
+    final List<HomeContact> contacts = [
+      HomeContact.email,
+      HomeContact.phone,
+      HomeContact.location,
+    ];
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          ...contacts.map(
+            (e) => HomeContactItem(
+              item: e,
+            ),
           ),
-        ),
-        _otherContacts(),
-      ],
+          _otherContacts(),
+        ],
+      ),
     );
   }
 }

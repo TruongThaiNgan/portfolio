@@ -31,14 +31,14 @@ class HomeScreen extends StatelessWidget {
         horizontal: MediaQuery.of(context).size.width * 0.05,
         vertical: MediaQuery.of(context).size.height * 0.05,
       ),
-      child: Row(
+      child: const Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ProfileSidebar(),
-          const SizedBox(
+          SizedBox(
             width: 32,
           ),
-          const Expanded(
+          Expanded(
             child: HomeContent(),
           ),
         ],

@@ -3,6 +3,7 @@ import 'package:flutter_boilerplate/constants/colors.dart';
 import 'package:flutter_boilerplate/constants/enums.dart';
 import 'package:flutter_boilerplate/constants/styles.dart';
 import 'package:flutter_boilerplate/utils/extension.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 import 'package:timeline_list/timeline_list.dart';
 
 class TimelineHistory extends StatelessWidget {
@@ -12,20 +13,39 @@ class TimelineHistory extends StatelessWidget {
   Widget build(BuildContext context) {
     const List<HistoryEnum> myHistory = HistoryEnum.values;
 
-    return Timeline(
-      properties: const TimelineProperties(
-        timelinePosition: TimelinePosition.center,
-        lineWidth: 4,
-        lineColor: AppColors.secondaryText,
-        iconGap: 16,
-        iconSize: 32,
-        iconAlignment: MarkerIconAlignment.center,
-      ),
-      children: myHistory
-          .mapIndexed((element, index) =>
-              _buildMaker(item: element.getItem(), isLeft: index.isEven))
-          .toList(),
-    );
+    return LayoutBuilder(builder: (context, _) {
+      ResponsiveBreakpointsData data = ResponsiveBreakpoints.of(context);
+      if (data.equals(XResponsiveBreakpoint.medium.name) ||
+          data.equals(XResponsiveBreakpoint.xSmall.name)) {
+        return Timeline(
+          properties: const TimelineProperties(
+            lineWidth: 4,
+            lineColor: AppColors.secondaryText,
+            iconGap: 16,
+            iconSize: 32,
+            iconAlignment: MarkerIconAlignment.center,
+          ),
+          children: myHistory
+              .mapIndexed((element, index) =>
+                  _buildMaker(item: element.getItem(), isLeft: false))
+              .toList(),
+        );
+      }
+      return Timeline(
+        properties: const TimelineProperties(
+          timelinePosition: TimelinePosition.center,
+          lineWidth: 4,
+          lineColor: AppColors.secondaryText,
+          iconGap: 16,
+          iconSize: 32,
+          iconAlignment: MarkerIconAlignment.center,
+        ),
+        children: myHistory
+            .mapIndexed((element, index) =>
+                _buildMaker(item: element.getItem(), isLeft: index.isEven))
+            .toList(),
+      );
+    });
   }
 
   Marker _buildMaker({
