@@ -95,6 +95,16 @@ class $AssetsImagesGen {
   /// File path: assets/images/avatar.jpg
   AssetGenImage get avatar => const AssetGenImage('assets/images/avatar.jpg');
 
+  /// File path: assets/images/biib.png
+  AssetGenImage get biib => const AssetGenImage('assets/images/biib.png');
+
+  /// File path: assets/images/clinger.png
+  AssetGenImage get clinger => const AssetGenImage('assets/images/clinger.png');
+
+  /// File path: assets/images/gig_logo.png
+  AssetGenImage get gigLogo =>
+      const AssetGenImage('assets/images/gig_logo.png');
+
   /// File path: assets/images/img_login.jpg
   AssetGenImage get imgLogin =>
       const AssetGenImage('assets/images/img_login.jpg');
@@ -103,13 +113,54 @@ class $AssetsImagesGen {
   AssetGenImage get imgNoJobs =>
       const AssetGenImage('assets/images/img_no_jobs.png');
 
+  /// File path: assets/images/morning_bird.png
+  AssetGenImage get morningBird =>
+      const AssetGenImage('assets/images/morning_bird.png');
+
+  /// File path: assets/images/mymonx.png
+  AssetGenImage get mymonx => const AssetGenImage('assets/images/mymonx.png');
+
+  /// File path: assets/images/not_found.png
+  AssetGenImage get notFound =>
+      const AssetGenImage('assets/images/not_found.png');
+
+  /// File path: assets/images/real_agent.png
+  AssetGenImage get realAgent =>
+      const AssetGenImage('assets/images/real_agent.png');
+
+  /// File path: assets/images/real_launch.png
+  AssetGenImage get realLaunch =>
+      const AssetGenImage('assets/images/real_launch.png');
+
+  /// File path: assets/images/wile.png
+  AssetGenImage get wile => const AssetGenImage('assets/images/wile.png');
+
   /// List of all assets
   List<AssetGenImage> get values => [
     googleFlutterLogoSvg,
     avatar,
+    biib,
+    clinger,
+    gigLogo,
     imgLogin,
     imgNoJobs,
+    morningBird,
+    mymonx,
+    notFound,
+    realAgent,
+    realLaunch,
+    wile,
   ];
+}
+
+class $AssetsPdfGen {
+  const $AssetsPdfGen();
+
+  /// File path: assets/pdf/Truong_Thai_Ngan.pdf
+  String get truongThaiNgan => 'assets/pdf/Truong_Thai_Ngan.pdf';
+
+  /// List of all assets
+  List<String> get values => [truongThaiNgan];
 }
 
 class Assets {
@@ -117,6 +168,7 @@ class Assets {
 
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsPdfGen pdf = $AssetsPdfGen();
 }
 
 class AssetGenImage {

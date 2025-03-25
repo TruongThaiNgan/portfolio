@@ -31,9 +31,17 @@ class TimelineHistory extends StatelessWidget {
           iconAlignment: MarkerIconAlignment.center,
         ),
         children: myHistory
-            .mapIndexed((element, index) => _buildMaker(
+            .mapIndexed(
+              (element, index) => _buildMaker(
                 item: element.getItem(),
-                isLeft: !isMediumOrXSmall && index.isEven))
+                isLeft: !isMediumOrXSmall && index.isEven,
+                iconAlignment: index == 0
+                    ? MarkerIconAlignment.top
+                    : index == myHistory.length - 1
+                        ? MarkerIconAlignment.bottom
+                        : MarkerIconAlignment.center,
+              ),
+            )
             .toList(),
       );
     });
@@ -41,9 +49,11 @@ class TimelineHistory extends StatelessWidget {
 
   Marker _buildMaker({
     bool isLeft = true,
+    MarkerIconAlignment? iconAlignment,
     required HistoryItem item,
   }) {
     return Marker(
+      iconAlignment: iconAlignment,
       position: isLeft ? MarkerPosition.right : MarkerPosition.left,
       icon: Container(
         decoration: BoxDecoration(

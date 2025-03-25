@@ -17,7 +17,9 @@ class ResumeScreen extends StatelessWidget {
             style: AppStyles.titleLarge,
           ),
           SizedBox(height: 16),
-          TimelineHistory()
+          Expanded(
+            child: TimelineHistory(),
+          ),
         ],
       ),
     );

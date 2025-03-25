@@ -20,9 +20,9 @@ class AboutMeScreen extends StatelessWidget {
             ),
             SizedBox(height: 16),
             Text('''
-        A passionate Flutter developer with strong expertise in cross-platform apps, REST APIs, UI/UX, widgets, and state management solutions. Proven track record in delivering cutting-edge solutions, including API integration, third-party libraries, and performance optimization. Adept at debugging to ensure high-quality, responsive apps and An agile collaborator committed to staying current with industry trends.
-        
-        If you're seeking a skilled Flutter developer to breathe life into your project and exceed your expectations, I am here to collaborate and create magic together. Reach out, and let's transform your vision into a reality!
+        I am a Mobile Developer with 4 years of experience specializing in Flutter and React Native to build high-performance, cross-platform mobile applications for iOS and Android. I focus on delivering smooth UI/UX, optimizing app performance, and writing clean, maintainable code that aligns with business needs. While my primary focus is mobile development, I also have experience in backend and web development using Node.js and React.
+
+        I have worked on various projects, including e-commerce apps, fintech platforms, social media applications. I thrive in Agile environments and collaborate effectively with Backend Developers, UI/UX Designers, and Product Managers to deliver high-quality mobile solutions.
         '''),
             AbilitiesSection(),
             SizedBox(height: 8),
