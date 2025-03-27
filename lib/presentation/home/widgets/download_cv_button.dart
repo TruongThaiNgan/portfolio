@@ -9,24 +9,24 @@ class DownloadCvButton extends StatelessWidget {
   const DownloadCvButton({super.key});
 
   Future<void> downloadAssetFile() async {
-    // Load file from assets
-    ByteData data = await rootBundle.load('assets/pdf/Truong_Thai_Ngan.pdf');
-    Uint8List bytes = data.buffer.asUint8List();
+    // // Load file from assets
+    // ByteData data = await rootBundle.load('assets/pdf/Truong_Thai_Ngan.pdf');
+    // Uint8List bytes = data.buffer.asUint8List();
 
-    // Convert bytes to Blob
-    final blob = html.Blob([bytes]);
+    // // Convert bytes to Blob
+    // final blob = html.Blob([bytes]);
 
-    // Create an Object URL
-    final url = html.Url.createObjectUrlFromBlob(blob);
+    // // Create an Object URL
+    // final url = html.Url.createObjectUrlFromBlob(blob);
 
-    // Create a download anchor
-    // ignore: unused_local_variable
-    final anchor = html.AnchorElement(href: url)
-      ..setAttribute("download", "Truong_Thai_Ngan.pdf")
-      ..click();
+    // // Create a download anchor
+    // // ignore: unused_local_variable
+    // final anchor = html.AnchorElement(href: url)
+    //   ..setAttribute("download", "Truong_Thai_Ngan.pdf")
+    //   ..click();
 
-    // Revoke the URL to free memory
-    html.Url.revokeObjectUrl(url);
+    // // Revoke the URL to free memory
+    // html.Url.revokeObjectUrl(url);
   }
 
   @override

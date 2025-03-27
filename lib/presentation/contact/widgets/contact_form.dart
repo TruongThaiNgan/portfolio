@@ -4,6 +4,7 @@ import 'package:flutter_boilerplate/constants/colors.dart';
 import 'package:flutter_boilerplate/constants/enums.dart';
 import 'package:flutter_boilerplate/presentation/contact/logics/contact_form_bloc.dart';
 import 'package:flutter_boilerplate/presentation/contact/logics/count_down_form_sent_bloc.dart';
+import 'package:flutter_boilerplate/presentation/widgets/dialogs/alert_wrapper.dart';
 import 'package:flutter_boilerplate/presentation/widgets/input.dart';
 import 'package:flutter_boilerplate/presentation/widgets/outlined_button.dart';
 import 'package:responsive_framework/responsive_framework.dart';
@@ -18,14 +19,25 @@ class ContactForm extends StatefulWidget {
 class _ContactFormState extends State<ContactForm> {
   final _formKey = GlobalKey<FormState>();
 
+  void showErrorDialog(BuildContext context) {
+    XAlert.showErrorDialog(
+        context, "Oops! Something went wrong, please try again later.");
+  }
+
   void _onSubmitForm(
     BuildContext context,
-  ) {
+  ) async {
     bool isValidate = _formKey.currentState!.validate();
 
     if (isValidate) {
-      context.read<ContactFormBloc>().onSubmit(
-            onCallback: () => context.read<CountDownFormSentBloc>().onStarted(),
+      await context.read<ContactFormBloc>().onSubmit(
+            context,
+            onSuccess: () {
+              context.read<CountDownFormSentBloc>().onStarted();
+              XAlert.showSuccessDialog(context,
+                  "Thanks for contacting me, I will respond as soon as possible.");
+            },
+            onFailed: () => showErrorDialog(context),
           );
     }
   }
@@ -107,6 +119,8 @@ class _ContactFormState extends State<ContactForm> {
             return null;
           },
           value: state.subject ?? '',
+          onChanged: (value) =>
+              context.read<ContactFormBloc>().updateSubject(value),
         );
       },
     );
@@ -124,6 +138,8 @@ class _ContactFormState extends State<ContactForm> {
             }
             return null;
           },
+          onChanged: (value) =>
+              context.read<ContactFormBloc>().updateName(value),
           value: state.name ?? '',
         );
       },
@@ -137,6 +153,8 @@ class _ContactFormState extends State<ContactForm> {
           return XInput(
             labelText: 'Email',
             value: state.email ?? '',
+            onChanged: (value) =>
+                context.read<ContactFormBloc>().updateEmail(value),
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'Please enter some text';

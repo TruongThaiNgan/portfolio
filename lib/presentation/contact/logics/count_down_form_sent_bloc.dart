@@ -17,7 +17,7 @@ class CountDownFormSentBloc extends Cubit<CountDownFormSentState> {
 
   late Timer timer;
 
-  static const int _duration = 30;
+  static const int _duration = 600;
 
   late int endTime;
 

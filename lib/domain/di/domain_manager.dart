@@ -1,4 +1,4 @@
-import 'package:flutter_boilerplate/domain/repository/user/user_repository_impl.dart';
+import 'package:flutter_boilerplate/domain/repository/contact/contact_repository_impl.dart';
 
 class DomainManager {
   factory DomainManager() {
@@ -8,5 +8,5 @@ class DomainManager {
   DomainManager._();
   static DomainManager? _internal;
 
-  final user = UserRepositoryImpl();
+  final contact = ContactRepositoryImpl();
 }

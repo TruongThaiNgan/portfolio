@@ -87,7 +87,7 @@ enum HistoryEnum {
             title: "Golden Owl",
             role: "Software Developer",
             icon: Assets.icons.companyIcon.image(),
-            description: Text("""
+            description: const Text("""
 At Golden Owl, I worked as a Software Developer, starting with web development using JavaScript and React, then transitioning to mobile development with Flutter and React Native. Over time, I expanded my expertise to include backend development with Node.js, allowing me to contribute to full-stack solutions.
 
 During my time at Golden Owl, I worked on both company-owned products and outsourced projects, collaborating with cross-functional teams to develop scalable, high-performance applications. I gained valuable experience in Agile development, CI/CD pipelines, and optimizing application performance. This role significantly strengthened my problem-solving skills and adaptability in different development environments.
