@@ -78,7 +78,7 @@ class OldProjectsScreen extends StatelessWidget {
         role: "Mobile Developer",
         technologies: "React Native",
         description:
-            "I worked as a Frontend Developer using React Native. I focused on building new features and updating the UI, and I utilized Redux-Saga for state management and handling API calls..",
+            "I worked as a Frontend Developer using React Native. I focused on building new features and updating the UI, and I utilized Redux-Saga for state management and handling API calls.",
         logo: Assets.images.mymonx,
         url: "https://apps.apple.com/gb/app/mymonx-smart-ring/id6741517627",
       ),
